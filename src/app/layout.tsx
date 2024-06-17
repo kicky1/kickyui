@@ -20,28 +20,28 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
-      <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem
-            disableTransitionOnChange
-          >
-        <div className="min-h-screen bg-primary">
-          <Navbar 
-            logo="kickyui"
-            navLinks={[
-              { name: "Components", href: "/components" },
-              { name: "Themes", href: "/themes" },
-            ]}
-            socialLinks={[
-              { name: "GitHub", href: "https://github.com/kicky1/kickyui" },
-            ]}
-          />
-          <Layout
-            sidebar={<Sidebar items={sidebarItemsData} />}
-            children={children}
-          />
-        </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="min-h-screen bg-primary">
+            <Navbar
+              logo="kickyui"
+              navLinks={[
+                { name: "Components", href: "/components" },
+                { name: "Themes", href: "/themes" },
+              ]}
+              socialLinks={[
+                { name: "GitHub", href: "https://github.com/kicky1/kickyui" },
+              ]}
+            />
+            <Layout
+              sidebar={<Sidebar items={sidebarItemsData} />}
+              children={children}
+            />
+          </div>
         </ThemeProvider>
       </body>
     </html>

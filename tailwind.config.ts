@@ -1,6 +1,6 @@
 import { type Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
-import colors from 'tailwindcss/colors';
+import colors from "tailwindcss/colors";
 
 export default {
   content: ["./src/**/*.tsx"],
@@ -15,12 +15,10 @@ export default {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
       },
       boxShadow: {
-        'inner-top': 'inset 0 4px 6px rgba(0, 0, 0, 0.1)',
-        'inner-bottom': 'inset 0 -4px 6px rgba(0, 0, 0, 0.1)',
+        "inner-top": "inset 0 4px 6px rgba(0, 0, 0, 0.1)",
+        "inner-bottom": "inset 0 -4px 6px rgba(0, 0, 0, 0.1)",
       },
     },
   },
   plugins: [require("tailwind-scrollbar")],
 } satisfies Config;
-
-

@@ -7,9 +7,9 @@ type Props = {
   logo: ReactNode;
   navLinks: { name: string; href: string }[];
   socialLinks: { name: string; href: string }[];
-}
+};
 
-export const Navbar = ({logo, navLinks, socialLinks}: Props) => {
+export const Navbar = ({ logo, navLinks, socialLinks }: Props) => {
   const ref = useRef<HTMLElement>(null);
   const [isIntersecting, setIntersecting] = useState<boolean | undefined>(true);
 
@@ -35,20 +35,7 @@ export const Navbar = ({logo, navLinks, socialLinks}: Props) => {
         <div className="container mx-auto flex items-center justify-between p-5">
           <div className="flex justify-between gap-8">
             <div className="mr-4">{logo}</div>
-            {
-              navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="text-zinc-600 duration-200 hover:text-zinc-900"
-                >
-                  {link.name}
-                </Link>
-              ))
-            }
-          </div>
-          {
-            socialLinks.map((link) => (
+            {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
@@ -56,8 +43,17 @@ export const Navbar = ({logo, navLinks, socialLinks}: Props) => {
               >
                 {link.name}
               </Link>
-            ))
-          }
+            ))}
+          </div>
+          {socialLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-zinc-600 duration-200 hover:text-zinc-900"
+            >
+              {link.name}
+            </Link>
+          ))}
         </div>
       </div>
     </header>

@@ -1,9 +1,9 @@
-import ButtonExample from '@/componetsExamples/Button';
+import ButtonExample from "@/componetsExamples/Button";
 
 // Define your components in a function to handle JSX as components
 const componentsMap: any = {
   button: {
-    component: <ButtonExample/>,
+    component: <ButtonExample />,
     data: {
       title: "Button",
       description: "Button description",
@@ -65,15 +65,15 @@ Button.displayName = "Button"
 
 export { Button, buttonVariants }
 
-      `
+      `,
     },
   },
   card: {
-    component: <ButtonExample/>,
+    component: <ButtonExample />,
     data: {
       title: "Card",
       description: "Card description",
-      code: `// Your card component code here`
+      code: `// Your card component code here`,
     },
   },
 };
