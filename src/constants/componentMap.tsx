@@ -1,7 +1,6 @@
 import ButtonExample from "@/preview/Button/button";
 import { buttonCode } from "@/preview/Button/button-code";
 
-
 const componentsMap: any = {
   button: {
     component: <ButtonExample />,
