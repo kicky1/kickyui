@@ -1,0 +1,38 @@
+/* globals.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .sidebar {
+    @apply transition-all duration-1000 ease-in-out; /* Slow down the transition */
+  }
+
+  .sidebar::-webkit-scrollbar {
+    width: 0;
+    @apply transition-all duration-1000 ease-in-out; /* Slow down the transition */
+  }
+
+  .sidebar:hover::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    @apply rounded bg-gray-500;
+  }
+
+  .sidebar::-webkit-scrollbar-track {
+    @apply bg-gray-200;
+  }
+}
+
+pre {
+  padding: 1ch;
+  overflow-y: scroll;
+  max-height: 400px;
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+
