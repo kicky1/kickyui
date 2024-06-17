@@ -1,6 +1,6 @@
 export default function Layout({ sidebar, children }: any) {
   return (
-    <div className="container mx-auto flex bg-primary pt-16">
+    <div className="container mx-auto flex bg-background pt-16">
       <aside className="sticky top-16 h-[calc(100vh-5rem)] self-start overflow-y-auto">
         {sidebar}
       </aside>
