@@ -11,7 +11,7 @@ const componentsMap: any = {
     },
   },
   card: {
-    component: <ButtonExample />,
+    component: <ButtonExample loading={true}/>,
     data: {
       title: "Card",
       description: "Card description",
