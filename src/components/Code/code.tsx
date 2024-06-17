@@ -19,13 +19,8 @@ export default async function Code({
   });
 
   return (
-    <div className="">
       <div
         dangerouslySetInnerHTML={{ __html: html }}
       ></div>
-    </div>
-
-
-
   );
 }
