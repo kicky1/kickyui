@@ -1,7 +1,7 @@
 import Code from "@/components/Code/code";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/Tabs/tabs";
-import { Clipboard } from "lucide-react";
 import componentsMap from '@/constants/componentMap';
+import ClipboardButton from "./_components/ClipboardButton";
 
 export default function ComponentPage({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -29,14 +29,10 @@ export default function ComponentPage({ params }: { params: { id: string } }) {
           <TabsContent value="preview" className="rounded-b-lg rounded-tr-lg w-full">
             {component}
           </TabsContent>
-          <TabsContent value="code" className="rounded-lg ">
-            <div className="max-w-6xl">
-            <div className="relative">
+          <TabsContent value="code" className="rounded-lg">
+            <div className="max-w-6xl mx-auto relative">
               <Code code={data.code} lang="typescript" />
-              <div className="absolute top-2 right-8">
-                <Clipboard width={18} height={18} />
-              </div>
-            </div>
+              <ClipboardButton code={data.code} />
             </div>
           </TabsContent>
         </Tabs>
