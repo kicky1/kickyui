@@ -4,7 +4,7 @@ import SidebarItem from "./sidebar-item";
 
 type Props = {
   items: TSidebarItem[];
-}
+};
 
 export default function Sidebar({ items }: Props) {
   return (

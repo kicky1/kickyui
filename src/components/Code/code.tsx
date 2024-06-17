@@ -12,15 +12,10 @@ export default async function Code({
   lang = "typescript",
   theme = "min-light",
 }: Props) {
-  
   const html = await codeToHtml(code, {
     lang,
     theme,
   });
 
-  return (
-      <div
-        dangerouslySetInnerHTML={{ __html: html }}
-      ></div>
-  );
+  return <div dangerouslySetInnerHTML={{ __html: html }}></div>;
 }
