@@ -29,12 +29,28 @@ export default function ComponentPage({ params }: { params: { id: string } }) {
             <TabsTrigger value="preview">Preview</TabsTrigger>
             <TabsTrigger value="code">Code</TabsTrigger>
           </TabsList>
-          <TabsContent
-            value="preview"
-            className="w-full rounded-b-lg rounded-tr-lg"
-          >
-            {component}
-          </TabsContent>
+          <div className="flex flex-row">
+            <div className="basis-3/5 pr-2">
+              <TabsContent
+                value="preview"
+                className="h-[250px] w-full content-center rounded-b-lg rounded-tr-lg"
+              >
+                <div>
+                  <div className="flex  justify-center">{component}</div>
+                </div>
+              </TabsContent>
+            </div>
+            <div className="basis-2/5">
+              <TabsContent
+                value="preview"
+                className="h-[250px] w-full content-center rounded-lg rounded-tr-lg"
+              >
+                <div className="flex  justify-center">
+                  Here will be setting engine
+                </div>
+              </TabsContent>
+            </div>
+          </div>
           <TabsContent value="code" className="rounded-lg">
             <div className="relative mx-auto max-w-6xl">
               <Code code={data.code} lang="typescript" />
