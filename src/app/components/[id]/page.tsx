@@ -1,10 +1,10 @@
-import Code from "@/components/Code/code";
+import Code from "@/components/ui/Code/code";
 import {
   Tabs,
   TabsList,
   TabsTrigger,
   TabsContent,
-} from "@/components/Tabs/tabs";
+} from "@/components/ui/Tabs/tabs";
 import componentsMap from "@/constants/componentMap";
 import ClipboardButton from "./_components/ClipboardButton";
 

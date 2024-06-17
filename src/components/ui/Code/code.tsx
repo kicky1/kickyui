@@ -1,5 +1,5 @@
 import { codeToHtml } from "shiki";
-import type { BundledLanguage, BundledTheme } from "shiki"; // Import the types from shiki // [!code highlight]
+import type { BundledLanguage, BundledTheme } from "shiki";
 
 type Props = {
   code: string;
