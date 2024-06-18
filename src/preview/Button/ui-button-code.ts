@@ -1,4 +1,4 @@
-import * as React from "react";
+export const uiButtonCode = `import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
@@ -65,7 +65,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         {...props}
       >
-        <div className={size !== "icon" ? `pr-3` : ""}>
+        <div className={size !== "icon" ? "pr-3" : ""}>
           <Icons.spinner className="h-6 w-6 animate-spin" />
         </div>{" "}
         {size !== "icon" && loadingText}
@@ -76,3 +76,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = "Button";
 
 export { Button, buttonVariants };
+`;
