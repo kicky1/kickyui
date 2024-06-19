@@ -20,7 +20,7 @@ export default function ComponentPage({ params }: { params: { id: string } }) {
     componentsMap[id as string];
 
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-col items-start justify-start text-left">
+    <div className="mx-auto flex w-full max-w-6xl flex-col items-start justify-start text-left ">
       <h2 className="text-3xl font-semibold tracking-tight">{data.title}</h2>
       <h3 className="text-2xl font-normal tracking-tight text-slate-400">
         {data.description}
@@ -45,7 +45,7 @@ export default function ComponentPage({ params }: { params: { id: string } }) {
             <div className="basis-2/5">
               <TabsContent
                 value="preview"
-                className="h-[250px] w-full content-center rounded-lg rounded-tr-lg"
+                className="h-[250px] w-full content-center rounded-lg rounded-tr-lg bg-gradient bg-repeat"
               >
                 <div className="flex flex-col justify-center">
                   {settingsEngine}
@@ -53,7 +53,7 @@ export default function ComponentPage({ params }: { params: { id: string } }) {
               </TabsContent>
             </div>
           </div>
-          <TabsContent value="code" className="rounded-lg">
+          <TabsContent value="code" className="rounded-lg " >
             <div className="relative mx-auto max-w-6xl">
               <Code code={data.code} lang="typescript" />
               <ClipboardButton code={data.code} />
