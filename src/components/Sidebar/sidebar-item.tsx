@@ -16,7 +16,7 @@ export default function SidebarItem({ href, title }: Props) {
   return (
     <Link href={href} passHref>
       <li
-        className={`hover:bg-hoverWhite mb-1 flex w-full cursor-pointer items-center justify-between rounded-md p-2 pl-2 pr-2 font-normal text-slate-600 ${isActive ? "bg-slate-200 font-semibold text-slate-900" : ""}`}
+        className={`hover:bg-hoverWhite mb-1 flex w-full cursor-pointer items-center justify-between rounded-md p-2 pl-2 pr-2 font-normal text-slate-600 ${isActive ? "bg-secondary font-semibold" : ""}`}
       >
         <span className="ml-3 text-sm">{capitalizeFirstLetter(title)}</span>
       </li>

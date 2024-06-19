@@ -11,14 +11,18 @@ import {
 } from "@/components/ui/Select/select";
 import {
   setLoading,
+  setSize,
+  setTooltipText,
   setVariant,
   useAuthorizationStore,
 } from "@/zustand/stores/useEngineSettings";
 import { Checkbox } from "@/components/ui/Checkbox/checkbox";
+import { Input } from "@/components/ui/Input/input";
 
 export default function SettingsEngine() {
   const loading = useAuthorizationStore((state) => state.loading);
   const variant = useAuthorizationStore((state) => state.variant);
+  const tooltipText = useAuthorizationStore((state) => state.tooltipText);
 
   const handleChangeVariant = (
     value:
@@ -32,13 +36,21 @@ export default function SettingsEngine() {
     setVariant(value);
   };
 
+  const handleChangeSize = (value: "default" | "sm" | "lg" | "icon") => {
+    setSize(value);
+  };
+
   const handleChangeLoading = (loading: boolean) => {
     setLoading(loading);
   };
 
+  const handleChangeTooltipText = (tooltipText: string) => {
+    setTooltipText(tooltipText);
+  };
+
   return (
     <>
-      <div>
+      <div className="mx-auto">
         <Select onValueChange={handleChangeVariant}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Select variant" />
@@ -52,12 +64,35 @@ export default function SettingsEngine() {
               <SelectItem value="secondary">secondary</SelectItem>
               <SelectItem value="ghost">ghost</SelectItem>
               <SelectItem value="link">link</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      </div>
+      <div className="mx-auto mt-4">
+        <Select onValueChange={handleChangeSize}>
+          <SelectTrigger className="w-[180px]">
+            <SelectValue placeholder="Select size" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Sizes</SelectLabel>
+              <SelectItem value="default">default</SelectItem>
+              <SelectItem value="sm">sm</SelectItem>
+              <SelectItem value="lg">lg</SelectItem>
               <SelectItem value="icon">icon</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
       </div>
-      <div className="mt-4">
+      <div className="mx-auto mt-4">
+        <Input
+          placeholder="Tooltip text"
+          value={tooltipText}
+          onChange={(e) => handleChangeTooltipText(e.target.value)}
+          className="w-[180px]"
+        />
+      </div>
+      <div className="mx-auto mt-4">
         <div className="items-top flex space-x-2">
           <Checkbox
             checked={loading}
