@@ -26,7 +26,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="min-h-screen bg-background">
+          <div className="min-h-screen">
             <Navbar
               logo="kickyui"
               navLinks={[
