@@ -30,7 +30,7 @@ export default function RootLayout({
             <Navbar
               logo="kickyui"
               navLinks={[
-                { name: "Components", href: "/components" },
+                { name: "Components", href: "/components/button" },
                 { name: "Themes", href: "/themes" },
               ]}
               socialLinks={[

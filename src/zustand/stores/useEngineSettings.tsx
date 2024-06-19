@@ -10,8 +10,9 @@ type EngineSettingsStoreState = {
     | "outline"
     | "secondary"
     | "ghost"
-    | "link"
-    | "icon";
+    | "link";
+  size: "default" | "sm" | "lg" | "icon";
+  tooltipText: string;
   setLoading: (loading: boolean) => void;
   setVariant: (
     variant:
@@ -20,9 +21,10 @@ type EngineSettingsStoreState = {
       | "outline"
       | "secondary"
       | "ghost"
-      | "link"
-      | "icon",
+      | "link",
   ) => void;
+  setSize: (size: "default" | "sm" | "lg" | "icon") => void;
+  setTooltipText: (tooltipText: string) => void;
 };
 
 export const useAuthorizationStore = create<EngineSettingsStoreState>(
@@ -32,6 +34,8 @@ export const useAuthorizationStore = create<EngineSettingsStoreState>(
     ): EngineSettingsStoreState => ({
       loading: false,
       variant: "default",
+      size: "default",
+      tooltipText: "",
       setLoading: (loading) => {
         set((state) => {
           state.loading = loading;
@@ -42,8 +46,19 @@ export const useAuthorizationStore = create<EngineSettingsStoreState>(
           state.variant = variant;
         });
       },
+      setSize: (size) => {
+        set((state) => {
+          state.size = size;
+        });
+      },
+      setTooltipText: (tooltipText) => {
+        set((state) => {
+          state.tooltipText = tooltipText;
+        });
+      },
     }),
   ),
 );
 
-export const { setLoading, setVariant } = useAuthorizationStore.getState();
+export const { setLoading, setVariant, setSize, setTooltipText } =
+  useAuthorizationStore.getState();
