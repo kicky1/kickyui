@@ -1,13 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/Button/button";
-import { useAuthorizationStore } from "@/zustand/stores/useEngineSettings";
+import { useEngineSettingsStore } from "@/zustand/stores/useEngineSettings";
 
 export default function ButtonExample() {
-  const loading = useAuthorizationStore((state) => state.loading);
-  const variant = useAuthorizationStore((state) => state.variant);
-  const size = useAuthorizationStore((state) => state.size);
-  const tooltipText = useAuthorizationStore((state) => state.tooltipText);
+  const loading = useEngineSettingsStore((state) => state.loading);
+  const variant = useEngineSettingsStore((state) => state.variant);
+  const size = useEngineSettingsStore((state) => state.size);
+  const tooltipText = useEngineSettingsStore((state) => state.tooltipText);
 
   return (
     <>

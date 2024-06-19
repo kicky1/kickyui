@@ -12,6 +12,9 @@ import { Timeline } from "@/components/Timeline/timeline";
 export default function ComponentPage({ params }: { params: { id: string } }) {
   const { id } = params;
 
+  console.log(componentsMap);
+  console.log(id);
+
   if (!id || !componentsMap[id as string]) {
     return <div>Component not found</div>;
   }
@@ -31,8 +34,8 @@ export default function ComponentPage({ params }: { params: { id: string } }) {
             <TabsTrigger value="preview">Preview</TabsTrigger>
             <TabsTrigger value="code">Code</TabsTrigger>
           </TabsList>
-          <div className="flex flex-row">
-            <div className="basis-3/5 pr-2">
+          <div className="flex flex-col lg:flex-row">
+            <div className="basis-1 pr-2 lg:basis-3/5">
               <TabsContent
                 value="preview"
                 className="bg-gradient h-[250px] w-full content-center rounded-b-lg rounded-tr-lg bg-repeat"
@@ -42,7 +45,7 @@ export default function ComponentPage({ params }: { params: { id: string } }) {
                 </div>
               </TabsContent>
             </div>
-            <div className="basis-2/5">
+            <div className="basis:1 mt-2 lg:mt-0 lg:basis-2/5">
               <TabsContent
                 value="preview"
                 className="bg-gradient h-[250px] w-full content-center rounded-lg rounded-tr-lg bg-repeat"
@@ -61,7 +64,8 @@ export default function ComponentPage({ params }: { params: { id: string } }) {
           </TabsContent>
         </Tabs>
       </div>
-      <div className="mt-8 w-full">
+
+      <div className="mt-8 hidden w-full lg:block">
         <h3 className="text-2xl font-semibold tracking-tight">Instalation</h3>
         <div className="col-span-12 space-y-6 px-4 lg:col-span-9">
           <div className="relative col-span-8 ml-4 mt-4 space-y-8 px-4 before:absolute before:-left-3 before:bottom-1 before:top-2 before:w-0.5 before:bg-gray-700">

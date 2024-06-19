@@ -13,6 +13,7 @@ type EngineSettingsStoreState = {
     | "link";
   size: "default" | "sm" | "lg" | "icon";
   tooltipText: string;
+  isArrow: boolean;
   setLoading: (loading: boolean) => void;
   setVariant: (
     variant:
@@ -25,9 +26,10 @@ type EngineSettingsStoreState = {
   ) => void;
   setSize: (size: "default" | "sm" | "lg" | "icon") => void;
   setTooltipText: (tooltipText: string) => void;
+  setIsArrow: (isArrow: boolean) => void;
 };
 
-export const useAuthorizationStore = create<EngineSettingsStoreState>(
+export const useEngineSettingsStore = create<EngineSettingsStoreState>(
   immer(
     (
       set: (fn: (draft: Draft<EngineSettingsStoreState>) => void) => void,
@@ -36,6 +38,7 @@ export const useAuthorizationStore = create<EngineSettingsStoreState>(
       variant: "default",
       size: "default",
       tooltipText: "",
+      isArrow: false,
       setLoading: (loading) => {
         set((state) => {
           state.loading = loading;
@@ -56,9 +59,14 @@ export const useAuthorizationStore = create<EngineSettingsStoreState>(
           state.tooltipText = tooltipText;
         });
       },
+      setIsArrow: (isArrow) => {
+        set((state) => {
+          state.isArrow = isArrow;
+        });
+      },
     }),
   ),
 );
 
-export const { setLoading, setVariant, setSize, setTooltipText } =
-  useAuthorizationStore.getState();
+export const { setLoading, setVariant, setSize, setTooltipText, setIsArrow } =
+  useEngineSettingsStore.getState();

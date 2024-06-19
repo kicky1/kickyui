@@ -14,15 +14,15 @@ import {
   setSize,
   setTooltipText,
   setVariant,
-  useAuthorizationStore,
+  useEngineSettingsStore,
 } from "@/zustand/stores/useEngineSettings";
 import { Checkbox } from "@/components/ui/Checkbox/checkbox";
 import { Input } from "@/components/ui/Input/input";
 
-export default function SettingsEngine() {
-  const loading = useAuthorizationStore((state) => state.loading);
-  const variant = useAuthorizationStore((state) => state.variant);
-  const tooltipText = useAuthorizationStore((state) => state.tooltipText);
+export default function ButtonSettingsEngine() {
+  const loading = useEngineSettingsStore((state) => state.loading);
+  const variant = useEngineSettingsStore((state) => state.variant);
+  const tooltipText = useEngineSettingsStore((state) => state.tooltipText);
 
   const handleChangeVariant = (
     value:
