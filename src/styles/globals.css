@@ -72,6 +72,16 @@
   .sidebar::-webkit-scrollbar-track {
     @apply bg-gray-200;
   }
+
+  .bg-gradient {
+    background-image: linear-gradient(to right, #EBEFF5 1px, transparent 1px), linear-gradient(to bottom, #EBEFF5 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .bg-repeat {
+    background-position: 0 0;
+    background-repeat: repeat;
+  }
 }
 
 pre {
