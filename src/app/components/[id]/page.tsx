@@ -35,7 +35,7 @@ export default function ComponentPage({ params }: { params: { id: string } }) {
             <div className="basis-3/5 pr-2">
               <TabsContent
                 value="preview"
-                className="h-[250px] w-full content-center rounded-b-lg rounded-tr-lg bg-gradient bg-repeat"
+                className="bg-gradient h-[250px] w-full content-center rounded-b-lg rounded-tr-lg bg-repeat"
               >
                 <div>
                   <div className="flex justify-center">{component}</div>
@@ -45,7 +45,7 @@ export default function ComponentPage({ params }: { params: { id: string } }) {
             <div className="basis-2/5">
               <TabsContent
                 value="preview"
-                className="h-[250px] w-full content-center rounded-lg rounded-tr-lg bg-gradient bg-repeat"
+                className="bg-gradient h-[250px] w-full content-center rounded-lg rounded-tr-lg bg-repeat"
               >
                 <div className="flex flex-col justify-center">
                   {settingsEngine}
@@ -53,7 +53,7 @@ export default function ComponentPage({ params }: { params: { id: string } }) {
               </TabsContent>
             </div>
           </div>
-          <TabsContent value="code" className="rounded-lg " >
+          <TabsContent value="code" className="rounded-lg ">
             <div className="relative mx-auto max-w-6xl">
               <Code code={data.code} lang="typescript" />
               <ClipboardButton code={data.code} />
