@@ -1,12 +1,16 @@
 import ButtonExample from "@/preview/Button/button";
 import { buttonCode } from "@/preview/Button/button-code";
-import SettingsEngine from "@/preview/Button/settings-engine";
+import ButtonSettingsEngine from "@/preview/Button/settings-engine";
 import { uiButtonCode } from "@/preview/Button/ui-button-code";
+import TooltipSettingsEngine from "@/preview/Tooltip/settings-engine";
+import TooltipExample from "@/preview/Tooltip/tooltip";
+import { tooltipCode } from "@/preview/Tooltip/tooltip-code";
+import { uiTooltipCode } from "@/preview/Tooltip/ui-tooltip-code";
 
 const componentsMap: any = {
   button: {
     component: <ButtonExample />,
-    settingsEngine: <SettingsEngine />,
+    settingsEngine: <ButtonSettingsEngine />,
     data: {
       title: "Button",
       description: "Button description",
@@ -14,13 +18,14 @@ const componentsMap: any = {
       componentCode: uiButtonCode,
     },
   },
-  card: {
-    component: <ButtonExample />,
-    settingsEngine: <SettingsEngine />,
+  tooltip: {
+    component: <TooltipExample />,
+    settingsEngine: <TooltipSettingsEngine />,
     data: {
-      title: "Card",
-      description: "Card description",
-      code: `// Your card component code here`,
+      title: "Tooltip",
+      description: "Tooltip description",
+      code: tooltipCode,
+      componentCode: uiTooltipCode,
     },
   },
 };

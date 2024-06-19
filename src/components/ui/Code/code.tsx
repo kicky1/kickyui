@@ -17,5 +17,9 @@ export default async function Code({
     theme,
   });
 
-  return <div dangerouslySetInnerHTML={{ __html: html }}></div>;
+  return (
+    <div className="overflow-x-auto">
+      <div dangerouslySetInnerHTML={{ __html: html }} />
+    </div>
+  );
 }
