@@ -26,7 +26,7 @@ export const Navbar = ({ logo, navLinks, socialLinks }: Props) => {
   return (
     <header ref={ref}>
       <div
-        className={`fixed inset-x-0 top-0 z-50 h-16 backdrop-blur duration-200 bg-gradient bg-repeat ${
+        className={`bg-gradient fixed inset-x-0 top-0 z-50 h-16 bg-repeat backdrop-blur duration-200 ${
           isIntersecting
             ? "border-transparent bg-zinc-900/0"
             : "bg-zinc-900/500 border-zinc-800"

@@ -74,12 +74,13 @@
   }
 
   .bg-gradient {
-    background-image: linear-gradient(to right, #EBEFF5 1px, transparent 1px), linear-gradient(to bottom, #EBEFF5 1px, transparent 1px);
+    background-image: linear-gradient(to right, #ebeff5 1px, transparent 1px),
+      linear-gradient(to bottom, #ebeff5 1px, transparent 1px);
     background-size: 15px 15px;
   }
-  
+
   .bg-repeat {
-    background-position: 10 ;
+    background-position: 10;
     background-repeat: repeat;
   }
 }
