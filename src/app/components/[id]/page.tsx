@@ -35,10 +35,10 @@ export default function ComponentPage({ params }: { params: { id: string } }) {
             <div className="basis-3/5 pr-2">
               <TabsContent
                 value="preview"
-                className="h-[250px] w-full content-center rounded-b-lg rounded-tr-lg"
+                className="h-[250px] w-full content-center rounded-b-lg rounded-tr-lg bg-gradient bg-repeat"
               >
                 <div>
-                  <div className="flex  justify-center">{component}</div>
+                  <div className="flex justify-center">{component}</div>
                 </div>
               </TabsContent>
             </div>
