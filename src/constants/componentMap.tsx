@@ -14,10 +14,11 @@ const componentsMap: any = {
     settingsEngine: <ButtonSettingsEngine />,
     data: {
       title: "Button",
-      description: "Examples of tailwind css buttons created with help of shadcn and radix ui.",
+      description:
+        "Examples of tailwind css buttons created with help of shadcn and radix ui.",
       code: buttonCode,
       componentCode: uiButtonCode,
-      examples: [<ButtonAnimated/>]
+      examples: [<ButtonAnimated />],
     },
   },
   tooltip: {
@@ -25,7 +26,8 @@ const componentsMap: any = {
     settingsEngine: <TooltipSettingsEngine />,
     data: {
       title: "Tooltip",
-      description: "Examples of tailwind css tooltips created with help of shadcn and radix ui.",
+      description:
+        "Examples of tailwind css tooltips created with help of shadcn and radix ui.",
       code: tooltipCode,
       componentCode: uiTooltipCode,
     },
