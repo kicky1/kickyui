@@ -1,4 +1,4 @@
-import ClipboardButton from "@/app/components/[id]/_components/ClipboardButton";
+import ClipboardButton from "@/app/components/[id]/_components/clipboard-button";
 import Code from "../ui/Code/code";
 
 type Props = {
