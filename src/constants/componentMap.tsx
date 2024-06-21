@@ -1,3 +1,4 @@
+import ButtonAnimated from "@/components/Buttons/button-animated";
 import ButtonExample from "@/preview/Button/button";
 import { buttonCode } from "@/preview/Button/button-code";
 import ButtonSettingsEngine from "@/preview/Button/settings-engine";
@@ -13,9 +14,10 @@ const componentsMap: any = {
     settingsEngine: <ButtonSettingsEngine />,
     data: {
       title: "Button",
-      description: "Button description",
+      description: "Examples of tailwind css buttons created with help of shadcn and radix ui.",
       code: buttonCode,
       componentCode: uiButtonCode,
+      examples: [<ButtonAnimated/>]
     },
   },
   tooltip: {
@@ -23,7 +25,7 @@ const componentsMap: any = {
     settingsEngine: <TooltipSettingsEngine />,
     data: {
       title: "Tooltip",
-      description: "Tooltip description",
+      description: "Examples of tailwind css tooltips created with help of shadcn and radix ui.",
       code: tooltipCode,
       componentCode: uiTooltipCode,
     },
