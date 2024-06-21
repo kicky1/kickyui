@@ -27,10 +27,18 @@ export default function ButtonSettingsEngine() {
   const handleChangeVariant = (
     value:
       | "default"
+      | "default"
       | "destructive"
       | "outline"
       | "secondary"
       | "ghost"
+      | "gooeyLeft"
+      | "gooeyRight"
+      | "shine"
+      | "expandIcon"
+      | "linkHover1"
+      | "linkHover2"
+      | "ringHover"
       | "link",
   ) => {
     setVariant(value);
@@ -64,6 +72,13 @@ export default function ButtonSettingsEngine() {
               <SelectItem value="secondary">secondary</SelectItem>
               <SelectItem value="ghost">ghost</SelectItem>
               <SelectItem value="link">link</SelectItem>
+              <SelectItem value="gooeyLeft">gooeyLeft</SelectItem>
+              <SelectItem value="gooeyRight">gooeyRight</SelectItem>
+              <SelectItem value="shine">shine</SelectItem>
+              <SelectItem value="expandIcon">expandIcon</SelectItem>
+              <SelectItem value="linkHover1">linkHover1</SelectItem>
+              <SelectItem value="linkHover2">linkHover2</SelectItem>
+              <SelectItem value="ringHover">ringHover</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>

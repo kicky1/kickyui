@@ -1,5 +1,6 @@
 "use client";
 
+import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/Button/button";
 import { useEngineSettingsStore } from "@/zustand/stores/useEngineSettings";
 
@@ -18,6 +19,8 @@ export default function ButtonExample() {
         loading={loading}
         disabled={loading}
         tooltipText={tooltipText}
+        Icon={<Icons.arrowRight className="h-5 w-5" />}
+        iconPlacement="right"
       >
         {size === "icon" ? null : "Button"}
       </Button>

@@ -10,6 +10,13 @@ type EngineSettingsStoreState = {
     | "outline"
     | "secondary"
     | "ghost"
+    | "gooeyLeft"
+    | "gooeyRight"
+    | "shine"
+    | "expandIcon"
+    | "linkHover1"
+    | "linkHover2"
+    | "ringHover"
     | "link";
   size: "default" | "sm" | "lg" | "icon";
   tooltipText: string;
@@ -22,6 +29,13 @@ type EngineSettingsStoreState = {
       | "outline"
       | "secondary"
       | "ghost"
+      | "gooeyLeft"
+      | "gooeyRight"
+      | "shine"
+      | "expandIcon"
+      | "linkHover1"
+      | "linkHover2"
+      | "ringHover"
       | "link",
   ) => void;
   setSize: (size: "default" | "sm" | "lg" | "icon") => void;
@@ -35,7 +49,7 @@ export const useEngineSettingsStore = create<EngineSettingsStoreState>(
       set: (fn: (draft: Draft<EngineSettingsStoreState>) => void) => void,
     ): EngineSettingsStoreState => ({
       loading: false,
-      variant: "default",
+      variant: "expandIcon",
       size: "default",
       tooltipText: "",
       isArrow: false,

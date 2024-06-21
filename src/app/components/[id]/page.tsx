@@ -17,8 +17,7 @@ export default function ComponentPage({ params }: { params: { id: string } }) {
     return <div>Component not found</div>;
   }
 
-  const { data, component, settingsEngine } =
-    componentsMap[id as string];
+  const { data, component, settingsEngine } = componentsMap[id as string];
 
   return (
     <div className="mx-auto flex w-full max-w-6xl flex-col items-start justify-start text-left ">
@@ -30,7 +29,8 @@ export default function ComponentPage({ params }: { params: { id: string } }) {
         <PreviewTabs
           component={component}
           settingsEngine={settingsEngine}
-          data={data}/>
+          data={data}
+        />
       </div>
       <div className="mt-8 hidden w-full lg:block">
         <h3 className="text-2xl font-semibold tracking-tight">Instalation</h3>
@@ -48,11 +48,7 @@ export default function ComponentPage({ params }: { params: { id: string } }) {
       <div className="mt-8 w-full">
         <h3 className="text-2xl font-semibold tracking-tight">Examples</h3>
         <div className="mt-4">
-          {data?.examples?.map((example: any, index: number) => (
-            <>
-             {example}
-            </>
-          ))}
+          {data?.examples?.map((example: any, index: number) => <>{example}</>)}
         </div>
       </div>
     </div>
