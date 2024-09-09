@@ -39,7 +39,6 @@ export function Toaster() {
                   </div>
                   {action}
                 </div>
-                <ToastClose />
                 <ProgressBar
                   toastRemoveDelay={duration || TOAST_REMOVE_DELAY}
                 />
