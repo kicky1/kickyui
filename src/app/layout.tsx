@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout/layout";
 import { Navbar } from "@/components/Navbar/navbar";
 import Sidebar from "@/components/Sidebar/sidebar";
+import { Toaster } from "@/components/ui/Toast/toaster";
 import { sidebarItemsData } from "@/constants/sidebarItemsData";
 import { ThemeProvider } from "@/providers/theme-provider";
 import "@/styles/globals.css";
@@ -42,6 +43,7 @@ export default function RootLayout({
               children={children}
             />
           </div>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

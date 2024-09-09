@@ -5,6 +5,9 @@ import ButtonExample from "@/preview/Button/button";
 import { buttonCode } from "@/preview/Button/button-code";
 import ButtonSettingsEngine from "@/preview/Button/settings-engine";
 import { uiButtonCode } from "@/preview/Button/ui-button-code";
+import ToastExample from "@/preview/Toast/toast-button";
+import { toastCode } from "@/preview/Toast/toast-code";
+import { uiToastCode } from "@/preview/Toast/ui-toast-code";
 import TooltipSettingsEngine from "@/preview/Tooltip/settings-engine";
 import TooltipExample from "@/preview/Tooltip/tooltip";
 import { tooltipCode } from "@/preview/Tooltip/tooltip-code";
@@ -60,6 +63,16 @@ const componentsMap: any = {
         "Examples of tailwind css tooltips created with help of shadcn and radix ui.",
       code: tooltipCode,
       componentCode: uiTooltipCode,
+    },
+  },
+  toast: {
+    component: <ToastExample />,
+    data: {
+      title: "Toast",
+      description:
+        "Examples of tailwind css toast created with help of shadcn and radix ui.",
+      code: toastCode,
+      componentCode: uiToastCode,
     },
   },
 };

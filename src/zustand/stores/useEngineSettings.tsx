@@ -20,6 +20,7 @@ type EngineSettingsStoreState = {
     | "linkHoverInvisible"
     | "ringHover"
     | "link";
+
   size: "default" | "sm" | "lg" | "icon";
   tooltipText: string;
   isArrow: boolean;

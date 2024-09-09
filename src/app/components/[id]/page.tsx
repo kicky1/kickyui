@@ -1,8 +1,6 @@
 import componentsMap from "@/constants/componentMap";
 import { Timeline } from "@/components/Timeline/timeline";
 import PreviewTabs from "./_components/preview-tabs";
-import Code from "@/components/ui/Code/code";
-import ClipboardButton from "./_components/clipboard-button";
 
 export default function ComponentPage({ params }: { params: { id: string } }) {
   const { id } = params;
