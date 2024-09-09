@@ -1,4 +1,5 @@
 import ButtonAnimated from "@/components/Buttons/button-animated";
+import { buttonAnimatedCode } from "@/components/Buttons/button-animated-code";
 import { Button } from "@/components/ui/Button/button";
 import ButtonExample from "@/preview/Button/button";
 import { buttonCode } from "@/preview/Button/button-code";
@@ -35,9 +36,19 @@ const componentsMap: any = {
         <Button variant="linkHoverVisible">Button</Button>,
         <Button variant="linkHoverInvisible">Button</Button>,
         <Button variant="ringHover">Button</Button>,
-        <ButtonAnimated />,
-        <Button variant="expandIcon"><ArrowRight /></Button>,
-    ],
+        <Button variant="expandIcon">
+          <ArrowRight />
+        </Button>,
+      ],
+      specialUseCase: [
+        {
+          title: "Button Animated",
+          component: <ButtonAnimated />,
+          data: {
+            code: buttonAnimatedCode,
+          },
+        },
+      ],
     },
   },
   tooltip: {

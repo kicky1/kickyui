@@ -34,7 +34,10 @@ export const Navbar = ({ logo, navLinks, socialLinks }: Props) => {
       >
         <div className="container mx-auto flex items-center justify-between p-5">
           <div className="flex justify-between gap-8">
-            <Link href="/" className="text-zinc-600 duration-200 hover:text-zinc-900">
+            <Link
+              href="/"
+              className="text-zinc-600 duration-200 hover:text-zinc-900"
+            >
               <div className="mr-4">{logo}</div>
             </Link>
             {navLinks.map((link) => (

@@ -1,6 +1,8 @@
 import componentsMap from "@/constants/componentMap";
 import { Timeline } from "@/components/Timeline/timeline";
 import PreviewTabs from "./_components/preview-tabs";
+import Code from "@/components/ui/Code/code";
+import ClipboardButton from "./_components/clipboard-button";
 
 export default function ComponentPage({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -38,12 +40,35 @@ export default function ComponentPage({ params }: { params: { id: string } }) {
         </div>
       </div>
       <div className="mt-8 w-full">
-        <p className="text-2xl font-semibold tracking-tight">Examples</p>
-        <div className="grid w-full grid-cols-12">
-          {data?.examples?.map((example: any) => <div className="col-span-1 my-2 mx-2 ">
-          {example}
-          </div>)}
-        </div>
+        {data?.examples && (
+          <>
+            <p className="text-2xl font-semibold tracking-tight">Examples</p>
+            <div className="grid w-full grid-cols-12">
+              {data?.examples?.map((example: any) => (
+                <div className="col-span-1 mx-2 my-2 ">{example}</div>
+              ))}
+            </div>
+          </>
+        )}
+        {data?.specialUseCase && (
+          <>
+            {data?.specialUseCase?.map((example: any) => (
+              <div className="mt-8">
+                <p className="text-2xl font-semibold tracking-tight">
+                  {example.title}
+                </p>
+                <div className="mt-2">
+                  <div className="mt-4 w-full">
+                    <PreviewTabs
+                      component={example.component}
+                      data={example.data}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </>
+        )}
       </div>
     </div>
   );

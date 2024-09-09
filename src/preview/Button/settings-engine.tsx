@@ -81,7 +81,9 @@ export default function ButtonSettingsEngine() {
               <SelectItem value="shine">shine</SelectItem>
               <SelectItem value="expandIcon">expandIcon</SelectItem>
               <SelectItem value="linkHoverVisible">linkHoverVisible</SelectItem>
-              <SelectItem value="linkHoverInvisible">linkHoverInvisible</SelectItem>
+              <SelectItem value="linkHoverInvisible">
+                linkHoverInvisible
+              </SelectItem>
               <SelectItem value="ringHover">ringHover</SelectItem>
             </SelectGroup>
           </SelectContent>
