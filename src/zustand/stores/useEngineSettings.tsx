@@ -53,7 +53,7 @@ export const useEngineSettingsStore = create<EngineSettingsStoreState>(
       set: (fn: (draft: Draft<EngineSettingsStoreState>) => void) => void,
     ): EngineSettingsStoreState => ({
       loading: false,
-      variant: "expandIcon",
+      variant: "default",
       size: "default",
       tooltipText: "",
       isArrow: false,
