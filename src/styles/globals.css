@@ -97,6 +97,12 @@
     background-size: 15px 15px;
   }
 
+  .bg-gradient-dark {
+    background-image: linear-gradient(to right, #1f2937 1px, transparent 1px),
+      linear-gradient(to bottom, #1f2937 1px, transparent 1px);
+    background-size: 15px 15px;
+  }
+
   .bg-repeat {
     background-position: 10;
     background-repeat: repeat;
@@ -120,12 +126,12 @@ pre::-webkit-scrollbar {
 }
 
 pre::-webkit-scrollbar-thumb {
-  background-color: #6b7280; /* Equivalent to bg-gray-500 */
+  background-color: #252527; /* Equivalent to bg-gray-500 */
   border-radius: 4px;
 }
 
 pre::-webkit-scrollbar-track {
-  background-color: #e5e7eb; /* Equivalent to bg-gray-200 */
+  background-color: #6b7280; /* Equivalent to bg-gray-200 */
 }
 
 @layer base {

@@ -17,7 +17,7 @@ export default function ClipboardButton({
     >
       <Button
         variant="link"
-        className={`${isDependency ? "text-white" : "text-black"}`}
+        className={`text-white`}
         onClick={() => {
           navigator.clipboard.writeText(code);
           toast({

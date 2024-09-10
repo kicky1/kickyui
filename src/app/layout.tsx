@@ -27,7 +27,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="bg-gradient min-h-screen bg-repeat">
+          <div className="bg-gradient dark:bg-gradient-dark min-h-screen bg-repeat">
             <Navbar
               logo="kickyui"
               navLinks={[

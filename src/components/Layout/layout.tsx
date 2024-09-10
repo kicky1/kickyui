@@ -8,7 +8,7 @@ export default function Layout({ sidebar, children }: any) {
 
       {/* Main Content */}
       <main className="flex-1">
-        <div className="mx-4 mb-9 flex flex-col space-y-2 rounded-xl bg-white  p-8 px-4 pt-6 shadow-md shadow-slate-400">
+        <div className="mx-4 mb-9 flex flex-col space-y-2 rounded-xl bg-white  p-8 px-4 pt-6 shadow-md shadow-slate-400 dark:bg-zinc-800 dark:shadow-none">
           {children}
         </div>
       </main>

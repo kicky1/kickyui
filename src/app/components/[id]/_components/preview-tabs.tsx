@@ -28,7 +28,7 @@ export default function PreviewTabs({
         <div className={`${settingsEngine ? "lg:w-3/5" : "w-full"}`}>
           <TabsContent
             value="preview"
-            className="bg-gradient h-[250px] w-full content-center rounded-b-lg rounded-tr-lg bg-repeat"
+            className="bg-gradient dark:bg-gradient-dark h-[250px] w-full content-center rounded-b-lg rounded-tr-lg bg-repeat "
           >
             <div>
               <div className="flex justify-center">{component}</div>
@@ -39,7 +39,7 @@ export default function PreviewTabs({
           <div className="basis:1 ml-2 mt-2 lg:mt-0 lg:basis-2/5">
             <TabsContent
               value="preview"
-              className="bg-gradient h-[250px] w-full content-center rounded-lg rounded-tr-lg bg-repeat"
+              className="bg-gradient dark:bg-gradient-dark h-[250px] w-full content-center rounded-lg rounded-tr-lg bg-repeat"
             >
               <div className="flex flex-col justify-center">
                 {settingsEngine}
