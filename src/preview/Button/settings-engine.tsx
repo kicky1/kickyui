@@ -8,7 +8,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/Select/select";
+} from "@/components/ui/select";
 import {
   setLoading,
   setSize,
@@ -16,8 +16,8 @@ import {
   setVariant,
   useEngineSettingsStore,
 } from "@/zustand/stores/useEngineSettings";
-import { Checkbox } from "@/components/ui/Checkbox/checkbox";
-import { Input } from "@/components/ui/Input/input";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
 
 export default function ButtonSettingsEngine() {
   const loading = useEngineSettingsStore((state) => state.loading);

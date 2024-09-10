@@ -1,10 +1,13 @@
 import ButtonAnimated from "@/components/Buttons/button-animated";
 import { buttonAnimatedCode } from "@/components/Buttons/button-animated-code";
-import { Button } from "@/components/ui/Button/button";
+import ButtonCosmic from "@/components/Buttons/button-cosmic";
+import { buttonCosmicCode } from "@/components/Buttons/button-cosmic-code";
+import { Button } from "@/components/ui/button";
 import ButtonExample from "@/preview/Button/button";
 import { buttonCode } from "@/preview/Button/button-code";
 import ButtonSettingsEngine from "@/preview/Button/settings-engine";
 import { uiButtonCode } from "@/preview/Button/ui-button-code";
+import ToastSettingsEngine from "@/preview/Toast/settings-engine";
 import ToastExample from "@/preview/Toast/toast-button";
 import { toastCode } from "@/preview/Toast/toast-code";
 import { uiToastCode } from "@/preview/Toast/ui-toast-code";
@@ -23,6 +26,7 @@ const componentsMap: any = {
       description:
         "Examples of tailwind css buttons created with help of shadcn and radix ui.",
       code: buttonCode,
+      dependencies: "npm install @radix-ui/react-slot",
       componentCode: uiButtonCode,
       examples: [
         <Button variant="default">Button</Button>,
@@ -51,6 +55,13 @@ const componentsMap: any = {
             code: buttonAnimatedCode,
           },
         },
+        {
+          title: "Button Cosmic",
+          component: <ButtonCosmic />,
+          data: {
+            code: buttonCosmicCode,
+          },
+        },
       ],
     },
   },
@@ -62,16 +73,19 @@ const componentsMap: any = {
       description:
         "Examples of tailwind css tooltips created with help of shadcn and radix ui.",
       code: tooltipCode,
+      dependencies: "npm install @radix-ui/react-tooltip",
       componentCode: uiTooltipCode,
     },
   },
   toast: {
     component: <ToastExample />,
+    settingsEngine: <ToastSettingsEngine />,
     data: {
       title: "Toast",
       description:
         "Examples of tailwind css toast created with help of shadcn and radix ui.",
       code: toastCode,
+      dependencies: "npm install @radix-ui/react-toast",
       componentCode: uiToastCode,
     },
   },

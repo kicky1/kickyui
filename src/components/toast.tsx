@@ -11,15 +11,7 @@ const ToastProvider = ToastPrimitives.Provider;
 type ToastViewportProps = React.ComponentPropsWithoutRef<
   typeof ToastPrimitives.Viewport
 > & {
-  position?:
-    | "top"
-    | "bottom"
-    | "left"
-    | "right"
-    | "top-left"
-    | "top-right"
-    | "bottom-left"
-    | "bottom-right";
+  position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
 };
 
 const ToastViewport = React.forwardRef<
@@ -55,9 +47,8 @@ const toastVariants = cva(
         default: "border bg-white",
         danger: "danger group border-danger bg-white text-danger",
         success: "success group border-success bg-white text-success",
-        warning:
-          "warning group border-warning bg-white text-warning-foreground",
-        info: "info group border-info bg-white text-info-foreground",
+        warning: "warning group border-warning bg-white text-warning",
+        info: "info group border-info bg-white text-info",
       },
     },
     defaultVariants: {
@@ -88,7 +79,7 @@ const ToastAction = React.forwardRef<
   <ToastPrimitives.Action
     ref={ref}
     className={cn(
-      "group-[.danger]:hover:border-danger/30 group-[.danger]:hover:bg-danger group-[.danger]:hover:text-danger-foreground group-[.danger]:focus:ring-danger mr-6 inline-flex h-8 shrink-0 items-center justify-center rounded border bg-transparent px-3 text-sm font-medium ring-offset-background transition-colors group-[.danger]:border-muted/40 hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+      "group-[.danger]:hover:text-danger-foreground mr-6 inline-flex h-8 shrink-0 items-center justify-center rounded border bg-transparent px-3 text-sm font-medium ring-offset-background transition-colors group-[.danger]:border-muted/40 hover:bg-secondary group-[.danger]:hover:border-danger/30 group-[.danger]:hover:bg-danger focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 group-[.danger]:focus:ring-danger disabled:pointer-events-none disabled:opacity-50",
       className,
     )}
     {...props}

@@ -1,12 +1,12 @@
 "use client";
 
-import { Button } from "@/components/ui/Button/button";
+import { Button } from "@/components/ui/button";
 import {
   TooltipProvider,
   Tooltip,
   TooltipTrigger,
   TooltipContent,
-} from "@/components/ui/Tooltip/tooltip";
+} from "@/components/ui/tooltip";
 import { useEngineSettingsStore } from "@/zustand/stores/useEngineSettings";
 
 export default function TooltipExample() {

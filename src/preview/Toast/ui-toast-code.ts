@@ -1,150 +1,151 @@
-export const uiToastCode = `import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
+export const uiToastCode = `
+import * as React from 'react';
+import * as ToastPrimitives from '@radix-ui/react-toast';
+import { cva, type VariantProps } from 'class-variance-authority';
 
-import { cn } from "@/lib/utils";
-import { Icons } from "@/components/icons";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "../Tooltip/tooltip";
+import { cn } from '@/lib/utils';
+import { Icons } from './icons';
 
-const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50 duration-300 ease-in-out transform-gpu transition-transform active:translate-y-[2px]",
+const ToastProvider = ToastPrimitives.Provider;
+type ToastViewportProps = React.ComponentPropsWithoutRef<
+  typeof ToastPrimitives.Viewport
+> & {
+  position?:
+    | 'top-left'
+    | 'top-right'
+    | 'bottom-left'
+    | 'bottom-right';
+};
+
+const ToastViewport = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Viewport>,
+  ToastViewportProps
+>(({ className, position, ...props }, ref) => {
+  const positionClasses = \`
+    \${position?.includes('top') ? 'top-0' : ''} 
+    \${position?.includes('bottom') ? 'bottom-0' : ''} 
+    \${position?.includes('left') ? 'left-0' : ''} 
+    \${position?.includes('right') ? 'right-0' : ''}
+  \`;
+
+  return (
+    <ToastPrimitives.Viewport
+      ref={ref}
+      className={cn(
+        \`fixed z-[100] mx-4 mt-4 flex max-h-screen w-full p-2 sm:flex-col md:max-w-[420px] \${positionClasses}\`,
+        className,
+      )}
+      {...props}
+    />
+  );
+});
+
+ToastViewport.displayName = ToastPrimitives.Viewport.displayName;
+
+const toastVariants = cva(
+  'group pointer-events-auto relative flex w-full items-center justify-between space-x-4 overflow-hidden rounded-md border p-6 pr-8 shadow-lg transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full',
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive: "bg-destructive text-white hover:bg-destructive/90",
-        outline:
-          "border-2 border-slate-600 bg-white hover:bg-slate-500 hover:text-white",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-primary hover:text-white",
-        link: "text-primary underline-offset-4 hover:underline",
-        expandIcon:
-          "group relative text-primary-foreground bg-primary hover:bg-primary/90",
-        ringHover:
-          "bg-primary text-primary-foreground transition-all duration-300 hover:bg-primary/90 hover:ring-2 hover:ring-primary/90 hover:ring-offset-2",
-        shine:
-          "text-primary-foreground animate-shine duration-2000 bg-gradient-to-r from-primary via-primary/65 to-primary bg-[length:400%_100%] ",
-        hoverFromRight:
-          "text-primary-foreground relative bg-primary z-0 overflow-hidden transition-all duration-500 before:absolute before:inset-0 before:-z-10 before:translate-x-[180%] before:translate-y-[180%] before:scale-[1.5] before:rounded-[100%] before:bg-gradient-to-r from-zinc-400 before:transition-transform before:duration-1000  hover:before:translate-x-[0%] hover:before:translate-y-[0%] ",
-        hoverFromLeft:
-          "text-primary-foreground relative bg-primary z-0 overflow-hidden transition-all duration-500 after:absolute after:inset-0 after:-z-10 after:translate-x-[-180%] after:translate-y-[180%] after:scale-[1.5] after:rounded-[100%] after:bg-gradient-to-l from-zinc-400 after:transition-transform after:duration-1000  hover:after:translate-x-[00%] hover:after:translate-y-[0%] ",
-          hoverFromBottom:
-          "text-primary-foreground relative bg-primary z-0 overflow-hidden transition-all duration-500 after:absolute after:inset-0 after:-z-10 after:translate-x-[0%] after:translate-y-[180%] after:scale-[1.5] after:rounded-[100%] after:bg-gradient-to-l from-zinc-400 after:transition-transform after:duration-1000  hover:after:translate-x-[00%] hover:after:translate-y-[0%] ",
-          hoverFromTop:
-          "text-primary-foreground relative bg-primary z-0 overflow-hidden transition-all duration-500 after:absolute after:inset-0 after:-z-10 after:translate-x-[0%] after:translate-y-[-180%] after:scale-[1.5] after:rounded-[100%] after:bg-gradient-to-l from-zinc-400 after:transition-transform after:duration-1000  hover:after:translate-x-[00%] hover:after:translate-y-[0%] ",
-          linkHoverVisible:
-          "relative after:absolute after:bg-primary after:bottom-2 after:h-[1px] after:w-2/3 after:origin-bottom-left after:scale-x-100 hover:after:origin-bottom-right hover:after:scale-x-0 after:transition-transform after:ease-in-out after:duration-300",
-        linkHoverInvisible:
-          "relative after:absolute after:bg-primary after:bottom-2 after:h-[1px] after:w-2/3 after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300",
-      },
-
-      size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
+        default: 'border bg-white',
+        danger: 'danger group border-danger bg-white text-danger',
+        success: 'success group border-success bg-white text-success',
+        warning:
+          'warning group border-warning bg-white text-warning',
+        info: 'info group border-info bg-white text-info',
       },
     },
     defaultVariants: {
-      variant: "default",
-      size: "default",
+      variant: 'default',
     },
   },
 );
 
-interface IconProps {
-  Icon: JSX.Element;
-  iconPlacement: "left" | "right";
-}
+const Toast = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Root>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> &
+    VariantProps<typeof toastVariants>
+>(({ className, variant, ...props }, ref) => {
+  return (
+    <ToastPrimitives.Root
+      ref={ref}
+      className={cn(toastVariants({ variant }), className, 'mx-2 my-1 p-0')}
+      {...props}
+    />
+  );
+});
+Toast.displayName = ToastPrimitives.Root.displayName;
 
-interface IconRefProps {
-  Icon?: never;
-  iconPlacement?: undefined;
-}
-
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  loading?: boolean;
-  loadingText?: string;
-  tooltipText?: string;
-}
-
-export type ButtonIconProps = IconProps | IconRefProps;
-
-const Button = React.forwardRef<
-  HTMLButtonElement,
-  ButtonProps & ButtonIconProps
->(
-  (
-    {
+const ToastAction = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Action>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Action>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Action
+    ref={ref}
+    className={cn(
+      'group-[.danger]:hover:border-danger/30 group-[.danger]:hover:bg-danger group-[.danger]:hover:text-danger-foreground group-[.danger]:focus:ring-danger mr-6 inline-flex h-8 shrink-0 items-center justify-center rounded border bg-transparent px-3 text-sm font-medium ring-offset-background transition-colors group-[.danger]:border-muted/40 hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
       className,
-      variant,
-      size,
-      loading = false,
-      loadingText = "Processing...",
-      tooltipText,
-      Icon,
-      iconPlacement = "right",
-      ...props
-    },
-    ref,
-  ) => {
-    return !loading ? (
-      tooltipText ? (
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <button
-                className={cn(buttonVariants({ variant, size, className }))}
-                ref={ref}
-                {...props}
-              />
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>{tooltipText}</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      ) : (
-        <button
-          className={cn(buttonVariants({ variant, size, className }))}
-          ref={ref}
-          {...props}
-        >
-          {Icon && iconPlacement === "left" && (
-            <div className="group-hover:translate-x-100 w-0 translate-x-[0%] pr-0 opacity-0 transition-all duration-200 group-hover:w-5 group-hover:pr-2 group-hover:opacity-100">
-              {Icon}
-            </div>
-          )}
-          {props.children}
-          {Icon && iconPlacement === "right" && (
-            <div className="w-0 translate-x-[100%] pl-0 opacity-0 transition-all duration-200 group-hover:w-5 group-hover:translate-x-0 group-hover:pl-2 group-hover:opacity-100">
-              {Icon}
-            </div>
-          )}
-        </button>
-      )
-    ) : (
-      <button
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      >
-        <div className={size !== "icon" ? 'pr-3' : ""}>
-          <Icons.spinner className="h-6 w-6 animate-spin" />
-        </div>{" "}
-        {size !== "icon" && loadingText}
-      </button>
-    );
-  },
-);
-Button.displayName = "Button";
+    )}
+    {...props}
+  />
+));
+ToastAction.displayName = ToastPrimitives.Action.displayName;
 
-export { Button, buttonVariants };
-;`;
+const ToastClose = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Close>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Close>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Close
+    ref={ref}
+    className={cn(
+      'absolute right-2 top-2 rounded p-1 text-foreground/50 opacity-0 transition-opacity group-hover:opacity-100 group-[.danger]:text-red-300 hover:bg-muted hover:text-foreground group-[.danger]:hover:text-red-50 focus:opacity-100 focus:outline-none focus:ring-2 group-[.danger]:focus:ring-red-400 group-[.danger]:focus:ring-offset-red-600',
+      className,
+    )}
+    toast-close=''
+    {...props}
+  >
+    <Icons.close className='h-4 w-4' />
+  </ToastPrimitives.Close>
+));
+ToastClose.displayName = ToastPrimitives.Close.displayName;
+
+const ToastTitle = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Title>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Title>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Title
+    ref={ref}
+    className={cn('text-sm font-semibold', className)}
+    {...props}
+  />
+));
+ToastTitle.displayName = ToastPrimitives.Title.displayName;
+
+const ToastDescription = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Description>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Description
+    ref={ref}
+    className={cn('text-sm opacity-90', className)}
+    {...props}
+  />
+));
+ToastDescription.displayName = ToastPrimitives.Description.displayName;
+
+type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>;
+
+type ToastActionElement = React.ReactElement<typeof ToastAction>;
+
+export {
+  type ToastProps,
+  type ToastActionElement,
+  ToastProvider,
+  ToastViewport,
+  Toast,
+  ToastTitle,
+  ToastDescription,
+  ToastClose,
+  ToastAction,
+};
+`;

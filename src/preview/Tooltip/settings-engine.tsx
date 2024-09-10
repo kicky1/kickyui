@@ -4,7 +4,7 @@ import {
   setIsArrow,
   useEngineSettingsStore,
 } from "@/zustand/stores/useEngineSettings";
-import { Checkbox } from "@/components/ui/Checkbox/checkbox";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export default function TooltipSettingsEngine() {
   const isArrow = useEngineSettingsStore((state) => state.isArrow);

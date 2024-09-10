@@ -28,7 +28,10 @@ export default function ComponentPage({ params }: { params: { id: string } }) {
         <p className="text-2xl font-semibold tracking-tight">Instalation</p>
         <div className="col-span-12 space-y-6 px-4 lg:col-span-9">
           <div className="relative col-span-8 ml-4 mt-4 space-y-8 px-4 before:absolute before:-left-3 before:bottom-1 before:top-2 before:w-0.5 before:bg-gray-700">
-            <Timeline text={"Install the following dependencies"} />
+            <Timeline
+              text={"Install the following dependencies"}
+              dependencies={data?.dependencies}
+            />
             <Timeline
               text={"Copy and paste the following code to your project"}
               code={data?.componentCode}
@@ -41,9 +44,11 @@ export default function ComponentPage({ params }: { params: { id: string } }) {
         {data?.examples && (
           <>
             <p className="text-2xl font-semibold tracking-tight">Examples</p>
-            <div className="grid w-full grid-cols-12">
-              {data?.examples?.map((example: any) => (
-                <div className="col-span-1 mx-2 my-2 ">{example}</div>
+            <div className="grid w-full grid-cols-3 gap-4 lg:grid-cols-6">
+              {data?.examples?.map((example: any, index: number) => (
+                <div key={index} className="mx-2 my-2">
+                  {example}
+                </div>
               ))}
             </div>
           </>

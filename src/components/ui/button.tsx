@@ -8,7 +8,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "../Tooltip/tooltip";
+} from "./tooltip";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50 duration-300 ease-in-out transform-gpu transition-transform active:translate-y-[2px]",
@@ -41,6 +41,8 @@ const buttonVariants = cva(
           "relative after:absolute after:bg-primary after:bottom-2 after:h-[1px] after:w-2/3 after:origin-bottom-left after:scale-x-100 hover:after:origin-bottom-right hover:after:scale-x-0 after:transition-transform after:ease-in-out after:duration-300",
         linkHoverInvisible:
           "relative after:absolute after:bg-primary after:bottom-2 after:h-[1px] after:w-2/3 after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300",
+        futuristic:
+          "text-md relative rounded-none border border-transparent text-black transition-all duration-300 ease-in-out hover:border-black hover:text-white hover:bg-black",
       },
 
       size: {

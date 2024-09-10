@@ -10,7 +10,7 @@ import {
 } from "@/components/toast";
 import { useToast } from "@/components/hooks/use-toast";
 import { TOAST_REMOVE_DELAY } from "@/components/hooks/use-toast";
-import { ProgressBar } from "../Progress/progress";
+import { ProgressBar } from "./progress";
 
 export function Toaster() {
   const { toasts } = useToast();
@@ -46,7 +46,7 @@ export function Toaster() {
             </Toast>
           ),
         )}
-        <ToastViewport position="bottom-right" />
+        <ToastViewport position={toasts[0]?.position} />
       </ToastProvider>
     </div>
   );

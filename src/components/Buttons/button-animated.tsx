@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Button, ButtonProps } from "@/components/ui/Button/button";
+import { Button, ButtonProps } from "@/components/ui/button";
 import { CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
@@ -31,6 +31,7 @@ const buttonVariants = cva("absolute -z-20 rounded-md [inset:var(--cut)]", {
       expandIcon: "bg-primary hover:bg-primary/90",
       shine: "bg-primary hover:bg-primary/90",
       ringHover: "bg-primary hover:bg-primary/90",
+      futuristic: "bg-primary hover:bg-primary/90",
     },
   },
   defaultVariants: {

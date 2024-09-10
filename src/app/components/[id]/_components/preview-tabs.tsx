@@ -1,11 +1,6 @@
-import {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
-} from "@/components/ui/Tabs/tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import ClipboardButton from "./clipboard-button";
-import Code from "@/components/ui/Code/code";
+import Code from "@/components/ui/code";
 
 type Props = {
   component: React.ReactNode;
